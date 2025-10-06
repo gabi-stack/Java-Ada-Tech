@@ -1,0 +1,265 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.print("Olá Mundo! ");
+        System.out.println(" Tudo bem?");
+
+        /*
+            Operadores Matemáticos:
+            soma +
+            subtração -
+            multiplicação *
+            divisão /
+            resto %
+
+            Operadores Relacionais:
+            igual ==
+            diferente !=
+            maior >
+            menor <
+            maior igual >=
+            menor igual <=
+
+            Operadores Lógicos:
+            e (and)    &&
+            ou     dois traços retos
+            não     !
+         */
+
+        int a = 10;
+        int b = 20;
+
+        int soma = a + b;     //30
+        int sub = b - a;      //10
+        int mult = a * b;     //200
+        int div = b / a;      //2
+        int resto = b % a;    //0
+
+        a += b; //30
+        boolean result = (a == b); //false
+        boolean result2 = (a >= 10 && b > 10); //true
+
+        /*
+            Estruturas de Condição:
+            if (condição = v) {
+                executar um bloco de codigo
+            }
+            else {
+                executar outro bloco de cogigo
+         */
+        int nota = 5;
+        if (nota >= 6) {
+            System.out.println("Aprovado!");
+        }
+        else if (nota >= 5 && nota < 6) {
+            System.out.println("Prova final!");
+        }
+        else {
+            System.out.println("Reprovado");
+        }
+
+        // Estruturas de Repetição:
+
+        // 1-
+        int i = 0;
+        while (i < 5) {
+            System.out.println(i);
+            i++;
+        }
+
+        // 2-
+        int j = 0;
+        do {
+            System.out.println(j);
+            j++;
+        }
+        while (j < 5);
+
+        // 3-
+        for (int k = 0; k < 5; k++) {
+            System.out.println(k);
+        }
+
+        /*
+            Classe String:
+              Funcionalidades:
+                Concatenação de Strings: '+' ou 'concat()'
+                Obtenção de Comprimento: 'lenght()'
+                Divisão em substring: 'split()'
+                Busca por substring: 'indexOf()' e 'lastIndexOf()'
+                Extração de caracteres individuais: 'charAt()'
+                Conversão entre maiúsculas e minúsculas: 'toUpperCase()' e 'toLowerCase()'
+                Comparação de Strings: 'equals()' ou 'equalsIgnoreCase()'
+
+           Exercício de exemplo:
+                No sistema de cadastro você precisa criar uma saudação personalizada para o cliente,
+                informando o nome completo em letras maiúsculas, o número de caracteres do nome,
+                e verificar se o nome digitado é igual ao de um cliente já cadastrado, ignorando o formato de escrita.
+                Além disso, vamos fazer a separação do nome e sobrenome, a exibição da primeira letra do nome e a posição do sobrenome.
+         */
+
+        String nomeDigitado = "Gabrielle Gois";
+        String nomeCadastrado = "gabrielle gois";
+
+        // Comparação dos nomes
+        boolean nomesIguais = nomeDigitado.equals(nomeCadastrado);
+        System.out.println("Os nomes são exatamente iguais? " + nomesIguais);
+
+        // Comparação ignorando maiúsculas e minúsculas
+        boolean nomesIguaisIgnore = nomeDigitado.equalsIgnoreCase(nomeCadastrado);
+        System.out.println("Os nomes são iguais ignorando maiusculas? " + nomesIguaisIgnore);
+
+        // Converter para maiúsculas
+        String nomeMaiusculo = nomeDigitado.toUpperCase();
+        System.out.println("Nome em maiúsculas: " + nomeMaiusculo);
+
+        // Converter para minúsculas
+        String nomeMinusculo = nomeDigitado.toLowerCase();
+        System.out.println("Nome em minúsculas: " + nomeMinusculo);
+
+        // Obter o tamanho da string
+        int tamanhoNome = nomeDigitado.length();
+        System.out.println("O nome contém " + tamanhoNome + " caracteres.");
+
+        // Saudação Personalizada
+        String saudacao = "Bem vinda, ".concat(nomeMaiusculo).concat("!");
+        System.out.println(saudacao);
+
+        // Obter a primeira letra do nome
+        char primeiraLetra = nomeDigitado.charAt(0);
+        System.out.println("A primeira letra do nome é " + primeiraLetra);
+
+        // Encontrar a posição do sobrenome
+        int posicaoSobrenome = nomeDigitado.indexOf("Gois");
+        if (posicaoSobrenome != -1) {
+            System.out.println("O sobrenome Gois começa na posição " + posicaoSobrenome);
+        }
+        else {
+            System.out.println("Sobrenome não foi encontrado!");
+        }
+
+        /*
+            Pacote Data
+              Funcionalidades:
+                - LocalDate: Representa uma data,
+                sem incluir informações de hora ou fuso horário.
+                Armazena ano, mês e dia.
+                - LocalTime: Representa uma hora do dia,
+                sem incluir informações de data ou fuso horário.
+                Armazena horas, minutos, segundos e frações de segundo.
+                - LocalDateTime: Combina data e hora em um único objeto,
+                sem informações de fuso horário.
+                - ZonedDateTime: Representa uma data e hora com
+                informações de fuso horário.
+                - Period: Representa um período de tempo entre duas datas,
+                com precisão de dias, meses e anos.
+
+            Exercício de exemplo:
+                A empresa quer registrar a data de aniversário dos clientes
+                para enviar ofertas especiais nesse dia. Precisa-se verificar
+                se a data do evento ocorre antes ou depois de uma data específica,
+                como a data de hoje. Além de armazenar a data e hora do cadastro
+                no sistema (incluindo fuso horário), também é necessário calcular
+                o período até o próximo aniversário do cliente para enviar
+                uma mensagem personalizada.
+         */
+
+        // Cadastro do cliente
+        LocalDate dataNascimento = LocalDate.of(2001,7,30);
+        System.out.println("Data de nascimento do cliente: " + dataNascimento);
+
+        //Data e hora do cadastro do cliente
+        LocalDateTime dataHoraCadastro = LocalDateTime.now();
+        System.out.println("Data e hora do cadastro: " + dataHoraCadastro);
+
+        // Calcular próximo aniversário do cliente
+        LocalDate hoje = LocalDate.now();
+        LocalDate proximoAniversario = dataNascimento.withYear(hoje.getYear());
+        if (proximoAniversario.isBefore(hoje) || proximoAniversario.isEqual(hoje)) {
+            proximoAniversario = proximoAniversario.plusYears(1);
+        }
+        System.out.println("Próximo aniversário do cliente: " + proximoAniversario);
+
+        // Calcurar o período até o próximo aniversário
+        Period periodoAteAniversario = Period.between(hoje, proximoAniversario);
+        System.out.println("Faltam " + periodoAteAniversario.getMonths() +
+                " meses e " + periodoAteAniversario.getDays() + " dias para o próximo aniversário");
+
+        // Verificar se o aniversário é antes ou depois de um evento
+        LocalDate dataEvento = LocalDate.of(2025, 10, 05);
+        if (proximoAniversario.isAfter(dataEvento)) {
+            System.out.println("O aniversário do cliente é depois do evento");
+        }
+        else {
+            System.out.println("O aniversário do cliente é antes do evento");
+        }
+
+
+        // Vetores
+
+        int[] numeros = new int[3];
+
+        numeros[0] = 10;
+        numeros[1] = 20;
+        numeros[2] = 30;
+
+        for (int l = 0; l < numeros.length; l++) {
+            System.out.println(numeros[1]);
+        }
+
+
+        /*
+            Métodos (funções) Java:
+                Modularidade
+                Reutilização de código
+                Abstração
+                Parâmetros e Retorno
+                Visibilidade
+         */
+
+        int resultado = soma (5,3);
+        System.out.println("Resultado da soma: " + resultado);
+
+        /*
+            TRATAMENTO DE ERROS
+                - Exceções
+                - Bloco try-catch
+
+                    try {
+                    // código a ser executado e verificado se haverá exceção
+                    }
+                    catch {
+                    // tratamento de erro a ser executado
+                    }
+                    finally {
+                    // códigos que serão sempre executados
+                    }
+         */
+
+        try {
+            int resultado2 = dividir(10, 0);
+            System.out.println("Resultado: " + resultado2);
+        } catch (ArithmeticException e) {
+            System.out.println("Erro: Divisão por zero.");
+        } finally {
+            System.out.println("Bloco finally sendo executado.");
+        }
+
+    }
+
+    public static int soma (int f, int g) {
+        return f+g;
+    }
+
+    public static double soma (double f, double g) {
+        return f+g;
+    }
+
+    public static int dividir(int d, int e)  {
+        return d / e;
+    }
+}
