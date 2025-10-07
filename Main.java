@@ -1,0 +1,47 @@
+import Animais.Cachorro;
+import Animais.Gato;
+import Animais.Passaro;
+import Lojas.PetShop;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Cachorro cachorro1 = new Cachorro("Puppy", "Branco", 10, 5.5);
+        Gato gato1 = new Gato("Kitty", "Laranja", 6, 3.5);
+        Passaro passaro1 = new Passaro("Bird", "Azul", 3, 0.5);
+
+        cachorro1.soar();
+        gato1.soar();
+        passaro1.soar();
+
+        PetShop petShop = new PetShop();
+
+        petShop.darBanho(cachorro1);
+        System.out.println(cachorro1.getEstadoEspirito());
+
+        petShop.darBanho(gato1);
+        System.out.println(gato1.getEstadoEspirito());
+
+        petShop.tosar(cachorro1);
+        System.out.println(cachorro1.getEstadoEspirito());
+
+        double d = 5.5d;
+        float f = 3.00f;
+        float x = f + (float) d; // casting - transforma o tipo da variável
+        System.out.println(x);
+
+    }
+}
+
+// Nomes de variáveis:
+//  Deve começar por letra minúscula, underline _ ou $
+
+// Valores default (variável sem valor atribuído):
+//      int, short, long, byte = 0
+//      float, double = 0.0
+//      boolean = false
+//      char = vazio
+//      String = null
+//          (String faz parte da classe Objeto)
+
